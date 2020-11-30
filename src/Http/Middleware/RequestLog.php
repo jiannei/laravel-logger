@@ -1,13 +1,20 @@
 <?php
 
-
+/*
+ * This file is part of the Jiannei/laravel-logger.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Jiannei\Logger\Laravel\Http\Middleware;
 
-use Jiannei\Logger\Laravel\Events\RequestArrivedEvent;
-use Jiannei\Logger\Laravel\Events\RequestHandledEvent;
 use Closure;
 use Illuminate\Http\Request;
+use Jiannei\Logger\Laravel\Events\RequestArrivedEvent;
+use Jiannei\Logger\Laravel\Events\RequestHandledEvent;
 
 class RequestLog
 {
