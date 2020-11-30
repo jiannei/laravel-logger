@@ -1,7 +1,7 @@
 <h1 align="center"> laravel-logger </h1>
 
-<p align="center"> .</p>
-
+![Test](https://github.com/Jiannei/laravel-logger/workflows/Test/badge.svg)
+[![StyleCI](https://github.styleci.io/repos/317144680/shield?branch=main)](https://github.styleci.io/repos/317144680?branch=main)
 
 ## Installing
 
