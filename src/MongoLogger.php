@@ -28,6 +28,7 @@ class MongoLogger
     public function __invoke(array $config)
     {
         $uri = "mongodb://{$config['host']}:{$config['port']}";
+        $collection = null;
         switch ($config['separate']) {
             case 'daily':
                 $collection = Carbon::now()->format('Ymd').'_log';
