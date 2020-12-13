@@ -36,8 +36,8 @@ class LogJob implements ShouldQueue
 
     public function handle()
     {
-        // app()->forgetInstance(LoggerInterface::class);
-        unset(app()[LoggerInterface::class]);
+        app()->forgetInstance(LoggerInterface::class);
+        // unset(app()[LoggerInterface::class]);
 
         $logger = app(LoggerInterface::class)->getLogger();
         if ($logger instanceof Logger) {
