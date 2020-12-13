@@ -16,6 +16,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Monolog\Logger;
 use Monolog\Processor\WebProcessor;
+use Psr\Log\LoggerInterface;
 
 class LogJob implements ShouldQueue
 {
@@ -35,7 +36,10 @@ class LogJob implements ShouldQueue
 
     public function handle()
     {
-        $logger = clone app('log')->getLogger();
+        // app()->forgetInstance(LoggerInterface::class);
+        unset(app()[LoggerInterface::class]);
+
+        $logger = app(LoggerInterface::class)->getLogger();
         if ($logger instanceof Logger) {
             $logger->pushProcessor(new WebProcessor($this->serverData));
         }
