@@ -10,7 +10,6 @@
     ],
     "require": {
         "ext-json": "*",
-        "jenssegers/mongodb": "3.8.x",
         "jiannei/laravel-enum": "^1.0"
     },
     "require-dev": {
