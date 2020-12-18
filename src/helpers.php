@@ -9,20 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-use Illuminate\Foundation\Bus\PendingDispatch;
-use Jiannei\Logger\Laravel\Jobs\LogJob;
-
-if (! function_exists('logger')) {
+if (! function_exists('logger_async')) {
     /**
      * Log a debug message to the logs.
      *
      * @param  string  $message
      * @param  array  $context
-     * @return PendingDispatch|mixed
+     * @return \Illuminate\Foundation\Bus\PendingDispatch|mixed
      */
     function logger_async(string $message, array $context = [])
     {
-        return dispatch(new LogJob($message, $context, request()->server()));
+        return dispatch(new \Jiannei\Logger\Laravel\Jobs\LogJob($message, $context, request()->server()));
     }
 }
 
