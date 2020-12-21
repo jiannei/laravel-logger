@@ -18,7 +18,6 @@ use Jiannei\Logger\Laravel\Events\RequestArrivedEvent;
 use Jiannei\Logger\Laravel\Events\RequestHandledEvent;
 use Jiannei\Logger\Laravel\Listeners\RequestArrivedListener;
 use Jiannei\Logger\Laravel\Listeners\RequestHandledListener;
-use Jiannei\Logger\Laravel\Repositories\Enums\LogEnum;
 
 class ServiceProvider extends IlluminateServiceProvider
 {
@@ -56,7 +55,15 @@ class ServiceProvider extends IlluminateServiceProvider
                 'sql' => $realSql,
             ];
 
-            logger_async(LogEnum::SQL, $context);
+            /**
+             * @var \Jiannei\Enum\Laravel\Repositories\Enums\LogEnum $logEnumClass
+             */
+            $message = 'system:sql';
+            if (class_exists($logEnumClass = $this->app['config']->get('logging.enum'))) {
+                $message = $logEnumClass::getDescription($logEnumClass::SYSTEM_SQL);
+            }
+
+            logger_async($message, $context);
         });
     }
 

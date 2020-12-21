@@ -27,6 +27,8 @@ return [
         ],
     ],
 
+    'enum' => \Jiannei\Enum\Laravel\Repositories\Enums\LogEnum::class,
+
     'query' => [
         'enabled' => env('LOG_QUERY', false),
 

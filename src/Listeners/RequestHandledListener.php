@@ -11,8 +11,8 @@
 
 namespace Jiannei\Logger\Laravel\Listeners;
 
+use Illuminate\Support\Facades\Config;
 use Jiannei\Logger\Laravel\Events\RequestHandledEvent;
-use Jiannei\Logger\Laravel\Repositories\Enums\LogEnum;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class RequestHandledListener
@@ -32,6 +32,14 @@ class RequestHandledListener
             'duration' => formatDuration($end - $start),
         ];
 
-        logger_async(LogEnum::REQUEST, $context);
+        /**
+         * @var \Jiannei\Enum\Laravel\Repositories\Enums\LogEnum $logEnumClass
+         */
+        $message = 'system:request';
+        if (class_exists($logEnumClass = Config::get('logging.enum'))) {
+            $message = $logEnumClass::getDescription($logEnumClass::SYSTEM_REQUEST);
+        }
+
+        logger_async($message, $context);
     }
 }

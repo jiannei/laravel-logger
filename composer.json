@@ -9,12 +9,12 @@
         }
     ],
     "require": {
-        "ext-json": "*",
-        "jiannei/laravel-enum": "^1.0"
+        "ext-json": "*"
     },
     "require-dev": {
         "orchestra/testbench": "^6.4",
-        "phpunit/phpunit": "^9.4"
+        "phpunit/phpunit": "^9.4",
+        "jiannei/laravel-enum": "^1.2"
     },
     "autoload": {
         "files": [
