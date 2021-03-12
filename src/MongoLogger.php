@@ -27,7 +27,9 @@ class MongoLogger
      */
     public function __invoke(array $config)
     {
-        $uri = "mongodb://{$config['host']}:{$config['port']}";
+        $authorization = ($config['username'] && $config['password']) ? "{$config['username']}:{$config['password']}@" : '';
+        $uri = "mongodb://{$authorization}{$config['host']}:{$config['port']}";
+
         $collection = null;
         switch ($config['separate']) {
             case 'daily':
