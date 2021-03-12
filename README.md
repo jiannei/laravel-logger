@@ -77,16 +77,16 @@ LOG_CHANNEL=mongo
 LOG_SLACK_WEBHOOK_URL=
 LOG_QUERY=true
 LOG_REQUEST=true
-LOG_MONGODB_SEPARATE=daily
-LOG_MONGODB_LEVEL=debug
 
 # 如果使用的是 mongo channel 需要配置
-MONGODB_HOST=mongo
-MONGODB_PORT=27017
-MONGODB_DATABASE=lumen-api
-MONGODB_USERNAME=
-MONGODB_PASSWORD=
-MONGODB_AUTHENTICATION_DATABASE=admin
+LOG_MONGODB_SEPARATE=daily
+LOG_MONGODB_LEVEL=debug
+LOG_MONGODB_HOST=127.0.0.1
+LOG_MONGODB_PORT=27017
+LOG_MONGODB_DATABASE=logs
+LOG_MONGODB_USERNAME=
+LOG_MONGODB_PASSWORD=
+LOG_MONGODB_AUTHENTICATION_DATABASE=admin
 ```
 
 ### 其他
@@ -115,7 +115,7 @@ logger_async(LogEnum::SYSTEM_SQL, $arrayData);
 [2021-01-18 12:03:36] local.DEBUG: System request {"request":[],"response":{"status":"success","code":200,"message":"操作成功","data":{"data":[{"id":1,"nickname":"Evert Stracke DVM","email":"aufderhar.kaden@example.net"},{"id":2,"nickname":"Milton Toy","email":"keagan.eichmann@example.org"},{"id":3,"nickname":"Mrs. Alyce O'Hara","email":"cartwright.sidney@example.org"},{"id":4,"nickname":"Prof. Evalyn Windler I","email":"bertram.bartoletti@example.org"},{"id":5,"nickname":"Brant Skiles","email":"jane16@example.net"},{"id":6,"nickname":"Sage Rodriguez I","email":"ryder50@example.org"},{"id":7,"nickname":"Ms. Angelica Wiegand DVM","email":"kaelyn.mueller@example.net"},{"id":8,"nickname":"Newton Zieme","email":"sipes.kip@example.com"},{"id":9,"nickname":"Natalia Ruecker","email":"stroman.kiley@example.com"},{"id":10,"nickname":"Hallie Parisian","email":"rosina74@example.net"},{"id":11,"nickname":"Jiannei","email":"longjian.huang@foxmail.com"}],"meta":{"pagination":{"total":11,"count":11,"per_page":15,"current_page":1,"total_pages":1,"links":[]}}},"error":[]},"start":1610942614.450748,"end":1610942615.785696,"duration":"1.33s"} {"url":"/users","ip":"172.22.0.1","http_method":"GET","server":"lumen-api.test","referrer":null,"unique_id":"43f54ea9-4ad4-47cf-b9da-1d3aa150ff61"}
 ```
 
-- 记录日志到 Mongodb 的日志内容
+- 记录到 Mongodb 的日志内容
 
 ```
 /* 1 */
@@ -167,7 +167,7 @@ logger_async(LogEnum::SYSTEM_SQL, $arrayData);
 
 ## 特别说明
 
-- SQL 日志记录参考：l[aravel-query-logger](https://github.com/overtrue/laravel-query-logger)
+- SQL 日志记录参考：[laravel-query-logger](https://github.com/overtrue/laravel-query-logger)
 
 ## License
 

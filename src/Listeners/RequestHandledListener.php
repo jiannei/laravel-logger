@@ -19,14 +19,22 @@ class RequestHandledListener
 {
     public function handle(RequestHandledEvent $event)
     {
-        $request = $event->request;
-        $response = $event->response;
-
-        $start = $request->server('REQUEST_TIME_FLOAT');
+        $start = $event->request->server('REQUEST_TIME_FLOAT');
         $end = microtime(true);
+
+        $request = $event->request->all();
+        if ($files = $event->request->allFiles()) {
+            foreach ($files as $key => $uploadedFile) {
+                $request[$key] = [
+                    'originalName' => $uploadedFile->getClientOriginalName(),
+                    'mimeType' => $uploadedFile->getClientMimeType(),
+                ];
+            }
+        }
+
         $context = [
-            'request' => $request->all(),
-            'response' => $response instanceof SymfonyResponse ? json_decode($response->getContent(), true) : (string) $response,
+            'request' => $request,
+            'response' => $event->response instanceof SymfonyResponse ? json_decode($event->response->getContent(), true) : (string) $event->response,
             'start' => $start,
             'end' => $end,
             'duration' => formatDuration($end - $start),

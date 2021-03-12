@@ -43,15 +43,11 @@ class MongoLogger
                 $collection = 'logs';
         }
 
-        $handler = new MongoDBHandler( // 创建 Handler
-            new Client($uri), // 创建 MongoDB 客户端（依赖 mongodb/mongodb）
-            $config['database'],
-            $collection
-        );
+        $handler = new MongoDBHandler(new Client($uri), $config['database'], $collection);
         $handler->setLevel($config['level']);
 
-        $logger = new Logger($config['channel']); // 创建 Logger
-        $logger->pushHandler($handler); // 挂载 Handler
+        $logger = new Logger($config['channel']);
+        $logger->pushHandler($handler);
 
         return $logger;
     }
