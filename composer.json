@@ -10,7 +10,7 @@
     ],
     "require": {
         "ext-json": "*",
-        "jiannei/helpers": "^0.1.1"
+        "jiannei/helpers": "^0.2.1"
     },
     "require-dev": {
         "orchestra/testbench": "^6.4",
