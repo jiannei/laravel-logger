@@ -37,7 +37,7 @@ class RequestHandledListener
             'response' => $event->response instanceof SymfonyResponse ? json_decode($event->response->getContent(), true) : (string) $event->response,
             'start' => $start,
             'end' => $end,
-            'duration' => formatDuration($end - $start),
+            'duration' => format_duration($end - $start),
         ];
 
         /**
