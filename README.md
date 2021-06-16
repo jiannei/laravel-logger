@@ -2,6 +2,11 @@
 
 ![Test](https://github.com/Jiannei/laravel-logger/workflows/Test/badge.svg)
 [![StyleCI](https://github.styleci.io/repos/317144680/shield?branch=main)](https://github.styleci.io/repos/317144680?branch=main)
+[![Latest Stable Version](http://poser.pugx.org/jiannei/laravel-logger/v)](https://packagist.org/packages/jiannei/laravel-logger)
+[![Total Downloads](http://poser.pugx.org/jiannei/laravel-logger/downloads)](https://packagist.org/packages/jiannei/laravel-logger)
+[![Monthly Downloads](http://poser.pugx.org/jiannei/laravel-logger/d/monthly)](https://packagist.org/packages/jiannei/laravel-logger)
+[![Latest Unstable Version](http://poser.pugx.org/jiannei/laravel-logger/v/unstable)](https://packagist.org/packages/jiannei/laravel-logger)
+[![License](http://poser.pugx.org/jiannei/laravel-logger/license)](https://packagist.org/packages/jiannei/laravel-logger)
 
 ## 介绍
 
