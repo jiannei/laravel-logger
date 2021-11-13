@@ -22,7 +22,6 @@ class MongoLogger
      * Create a custom Monolog instance.
      *
      * @param  array  $config
-     *
      * @return Logger
      */
     public function __invoke(array $config)
