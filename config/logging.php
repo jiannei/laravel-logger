@@ -19,18 +19,19 @@ return [
             'level' => env('LOG_MONGODB_LEVEL', 'debug'), // 日志级别
             'separate' => env('LOG_MONGODB_SEPARATE', false), // false,daily,monthly,yearly
 
-            'host' => env('LOG_MONGODB_HOST', config('database.connections.mongodb.host')),
-            'port' => env('LOG_MONGODB_PORT', config('database.connections.mongodb.port')),
-            'username' => env('LOG_MONGODB_USERNAME', config('database.connections.mongodb.username')),
-            'password' => env('LOG_MONGODB_PASSWORD', config('database.connections.mongodb.password')),
-            'database' => env('LOG_MONGODB_DATABASE', config('database.connections.mongodb.database')),
+            'host' => env('LOG_MONGODB_HOST', '127.0.0.1'),
+            'port' => env('LOG_MONGODB_PORT', 27017),
+            'username' => env('LOG_MONGODB_USERNAME',''),
+            'password' => env('LOG_MONGODB_PASSWORD', ''),
+            'database' => env('LOG_MONGODB_DATABASE', ''),
         ],
     ],
 
-    'enum' => \Jiannei\Enum\Laravel\Repositories\Enums\LogEnum::class,
-
     'query' => [
         'enabled' => env('LOG_QUERY', false),
+        'message' => 'query',
+        'connection' => env('LOG_QUERY_CONNECTION', 'default'),// queue connection
+        'queue' => env('LOG_QUERY_QUEUE', 'default'),// queue name
 
         // Only record queries that are slower than the following time
         // Unit: milliseconds
@@ -39,5 +40,8 @@ return [
 
     'request' => [
         'enabled' => env('LOG_REQUEST', false),
+        'message' => 'request',
+        'connection' => env('LOG_REQUEST_CONNECTION', 'default'),// queue connection
+        'queue' => env('LOG_REQUEST_QUEUE', 'default'),// queue name
     ],
 ];

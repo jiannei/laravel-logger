@@ -55,15 +55,9 @@ class ServiceProvider extends IlluminateServiceProvider
                 'sql' => $realSql,
             ];
 
-            /**
-             * @var \Jiannei\Enum\Laravel\Repositories\Enums\LogEnum $logEnumClass
-             */
-            $message = 'system:sql';
-            if (class_exists($logEnumClass = $this->app['config']->get('logging.enum'))) {
-                $message = $logEnumClass::getDescription($logEnumClass::SYSTEM_SQL);
-            }
-
-            logger_async($message, $context);
+            logger_async(\config('logging.query.message'), $context)
+                ->onConnection(\config('logging.query.connection'))
+                ->onQueue(\config('logging.query.queue'));
         });
     }
 
