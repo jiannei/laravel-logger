@@ -30,8 +30,8 @@ return [
     'query' => [
         'enabled' => env('LOG_QUERY', false),
         'message' => 'query',
-        'connection' => env('LOG_QUERY_CONNECTION', config('queue.default')),// queue connection
-        'queue' => env('LOG_QUERY_QUEUE', 'default'),// queue name
+        'connection' => env('LOG_QUERY_CONNECTION', config('queue.default')), // queue connection
+        'queue' => env('LOG_QUERY_QUEUE', 'default'), // queue name
 
         // Only record queries that are slower than the following time
         // Unit: milliseconds
@@ -41,7 +41,7 @@ return [
     'request' => [
         'enabled' => env('LOG_REQUEST', false),
         'message' => 'request',
-        'connection' => env('LOG_REQUEST_CONNECTION', config('queue.default')),// queue connection
-        'queue' => env('LOG_REQUEST_QUEUE', 'default'),// queue name
+        'connection' => env('LOG_REQUEST_CONNECTION', config('queue.default')), // queue connection
+        'queue' => env('LOG_REQUEST_QUEUE', 'default'), // queue name
     ],
 ];
