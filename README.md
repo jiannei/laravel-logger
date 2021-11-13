@@ -26,20 +26,14 @@
 
 - 提供 `logger_async` 辅助函数，通过异步 Job 方式来记录日志；
 - 增加 RequestLog 中间件来记录 api 的请求和响应；对于单个请求关联 `UNIQUE_ID`，根据`UNIQUE_ID`可以跟踪请求执行过程
-- 适配 MongoDB 驱动，支持记录日志到 MongoDB；collection 支持按天、按月和按年拆分；
-- 日志的 message 适配 [laravel-enum](https://github.com/Jiannei/laravel-enum)，来让所有的日志来源可以追溯
+- 适配 MongoDB 驱动，支持记录日志到 MongoDB；collection 支持按天、按月和按年拆分；(依赖 `mongodb/mongodb`或`jenssegers/mongodb`)
 - 提供 `LOG_QUERY`、`LOG_REQUEST` 配置参数来开启关闭 sql 日志和 request 日志
 
 ## 安装
 
-支持 Laravel 8/Lumen 8 以上版本，自定义日志描述分依赖于  [jiannei/laravel-enum](https://github.com/Jiannei/laravel-enum)，需要先进行安装。
-
-
 ```shell
-$ composer require jiannei/laravel-enum -vvv
 $ composer require jiannei/laravel-logger -vvv
 ```
-
 
 ## 配置
 
