@@ -23,7 +23,7 @@ return [
             'port' => env('LOG_MONGODB_PORT', 27017),
             'username' => env('LOG_MONGODB_USERNAME', ''),
             'password' => env('LOG_MONGODB_PASSWORD', ''),
-            'database' => env('LOG_MONGODB_DATABASE', ''),
+            'database' => env('LOG_MONGODB_DATABASE', 'logs'),
         ],
     ],
 
