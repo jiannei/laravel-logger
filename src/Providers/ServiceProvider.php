@@ -3,7 +3,7 @@
 /*
  * This file is part of the Jiannei/laravel-logger.
  *
- * (c) Jiannei <longjian.huang@foxmail.com>
+ * (c) Jiannei <jiannei@sinan.fun>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -29,7 +29,7 @@ class ServiceProvider extends IlluminateServiceProvider
 
     protected function logQuery()
     {
-        if (! $this->app['config']->get('logging.query.enabled', false)) {
+        if (!$this->app['config']->get('logging.query.enabled', false)) {
             return;
         }
 
@@ -63,7 +63,7 @@ class ServiceProvider extends IlluminateServiceProvider
 
     protected function logRequest()
     {
-        if (! $this->app['config']->get('logging.request.enabled', false)) {
+        if (!$this->app['config']->get('logging.request.enabled', false)) {
             return;
         }
 

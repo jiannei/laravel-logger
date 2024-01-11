@@ -3,7 +3,7 @@
 /*
  * This file is part of the Jiannei/laravel-logger.
  *
- * (c) Jiannei <longjian.huang@foxmail.com>
+ * (c) Jiannei <jiannei@sinan.fun>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -21,7 +21,6 @@ class MongoLogger
     /**
      * Create a custom Monolog instance.
      *
-     * @param  array  $config
      * @return Logger
      */
     public function __invoke(array $config)
